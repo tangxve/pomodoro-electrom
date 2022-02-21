@@ -4,3 +4,17 @@
 // `nodeIntegration` is turned off. Use `preload.js` to
 // selectively enable features needed in the rendering
 // process.
+const { ipcRenderer } = require('electron')
+const Timer = require('timer.js')
+
+function startWork() {
+  new Timer({
+    onclick: () => {
+      updateTime()
+    },
+    onend: () => {
+      notification()
+    }
+  })
+}
+
